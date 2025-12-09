@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:io';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_helper.dart';
+import 'package:server_driver_ui_grounds_package/server_driver_ui/ui_models/server_helper.dart';
 
 enum ServerImageType { asset, network, file, memory }
 

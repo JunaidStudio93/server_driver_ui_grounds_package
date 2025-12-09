@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_helper.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/widget_to_json.dart';
+import 'package:server_driver_ui_grounds_package/server_driver_ui/ui_models/server_helper.dart';
+import 'package:server_driver_ui_grounds_package/server_driver_ui/widget_to_json.dart';
 
 Map<String, dynamic> widgetToJson(Widget widget) {
   return WidgetToJson.convert(widget);

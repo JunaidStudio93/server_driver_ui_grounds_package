@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_helper.dart';
+import 'package:server_driver_ui_grounds_package/server_driver_ui/ui_models/server_helper.dart';
 
 class ServerSvgAsset {
   ServerSvgAsset({

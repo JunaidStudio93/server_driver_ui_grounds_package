@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/json_to_widget.dart';
+import 'package:server_driver_ui_grounds_package/server_driver_ui/json_to_widget.dart';
 
 class ServerListView {
   ServerListView({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:server_driver_ui_grounds/color_constants.dart';
+import 'package:server_driver_ui_grounds_package/color_constants.dart';
 
 abstract class AppTheme {
   AppTheme._();
