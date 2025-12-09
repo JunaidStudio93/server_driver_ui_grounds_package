@@ -1,13 +1,13 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/json_to_widget.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_center.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_column.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_container.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_row.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_scaffold.dart';
-import 'package:server_driver_ui_grounds/server_driver_ui/ui_models/server_text.dart';
+import 'package:example/server_driver_ui/json_to_widget.dart';
+import 'package:example/server_driver_ui/ui_models/server_center.dart';
+import 'package:example/server_driver_ui/ui_models/server_column.dart';
+import 'package:example/server_driver_ui/ui_models/server_container.dart';
+import 'package:example/server_driver_ui/ui_models/server_row.dart';
+import 'package:example/server_driver_ui/ui_models/server_scaffold.dart';
+import 'package:example/server_driver_ui/ui_models/server_text.dart';
 
 class ServerUIBuilder extends StatelessWidget {
   ServerUIBuilder({super.key});

@@ -1,14 +1,13 @@
+import 'package:example/ui_builder_page.dart';
 import 'package:flutter/material.dart';
-import 'package:server_driver_ui_grounds/app_theme.dart';
-import 'package:server_driver_ui_grounds/ui_builder_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
       home: ServerUIBuilder(),
       title: "UI Builder",
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
     ),

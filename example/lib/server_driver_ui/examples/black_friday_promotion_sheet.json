@@ -1,0 +1,553 @@
+{
+  "widgetType": "ServerBlocBuilder",
+  "cubitType": "SubscriptionCubit",
+  "child": {
+    "widgetType": "ServerLoadingOverlay",
+    "isLoading": false,
+    "child": {
+      "widgetType": "ServerScaffold",
+      "extendBodyBehindAppBar": true,
+      "extendBody": true,
+      "backgroundColor": 184549376,
+      "body": {
+        "widgetType": "ServerSizedBox",
+        "width": null,
+        "height": null,
+        "child": {
+          "widgetType": "ServerStack",
+          "alignment": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "children": [
+            {
+              "widgetType": "ServerClipRRect",
+              "borderRadius": null,
+              "clipBehavior": 0,
+              "child": {
+                "widgetType": "ServerExtendedCachedNetworkImage",
+                "imageUrl": "https://firebasestorage.googleapis.com/v0/b/stndrd-ea1bf.appspot.com/o/program%20images%2Fjacklet_dialog_imge.png?alt=media&token=54808875-ad21-4ee2-b03b-94e8bae6a70b",
+                "cacheKey": "https://firebasestorage.googleapis.com/v0/b/stndrd-ea1bf.appspot.com/o/program%20images%2Fjacklet_dialog_imge.png?alt=media&token=54808875-ad21-4ee2-b03b-94e8bae6a70b",
+                "width": null,
+                "height": null,
+                "fit": 6,
+                "alignment": {
+                  "x": 0.0,
+                  "y": -1.0
+                },
+                "hasPlaceholder": true,
+                "placeholderWidget": {
+                  "widgetType": "ServerLoadingShimmerCard",
+                  "height": null,
+                  "width": null
+                }
+              }
+            },
+            {
+              "widgetType": "ServerAlign",
+              "alignment": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "child": {
+                "widgetType": "ServerDecoratedBox",
+                "decoration": {
+                  "color": null,
+                  "borderRadius": null,
+                  "gradient": {
+                    "begin": {
+                      "x": 0.0,
+                      "y": -1.0
+                    },
+                    "end": {
+                      "x": 0.0,
+                      "y": 1.0
+                    },
+                    "colors": [
+                      0,
+                      184549376,
+                      184549376,
+                      184549376
+                    ],
+                    "stops": [
+                      0.0,
+                      0.9,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                },
+                "child": {
+                  "widgetType": "ServerPadding",
+                  "padding": {
+                    "left": 0,
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 32
+                  },
+                  "child": {
+                    "widgetType": "ServerColumn",
+                    "mainAxisSize": 1,
+                    "mainAxisAlignment": 3,
+                    "children": [
+                      {
+                        "widgetType": "ServerContainer",
+                        "padding": {
+                          "left": 10,
+                          "top": 4,
+                          "right": 10,
+                          "bottom": 4
+                        },
+                        "width": 75,
+                        "height": 27,
+                        "decoration": {
+                          "color": 1579034,
+                          "borderRadius": {
+                            "radius": 6
+                          }
+                        },
+                        "child": {
+                          "widgetType": "ServerCenter",
+                          "child": {
+                            "widgetType": "ServerText",
+                            "data": "67% OFF",
+                            "style": {
+                              "color": 14286848,
+                              "fontSize": 12,
+                              "fontWeight": 6
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "widgetType": "ServerSpace",
+                        "width": 0,
+                        "height": 8
+                      },
+                      {
+                        "widgetType": "ServerPadding",
+                        "padding": {
+                          "left": 20,
+                          "top": 0,
+                          "right": 0,
+                          "bottom": 0
+                        },
+                        "child": {
+                          "widgetType": "ServerImageAsset",
+                          "assetName": "assets/icons/png/black_friday_2025.png"
+                        }
+                      },
+                      {
+                        "widgetType": "ServerSpace",
+                        "width": 0,
+                        "height": 25
+                      },
+                      {
+                        "widgetType": "ServerRow",
+                        "mainAxisAlignment": 1,
+                        "crossAxisAlignment": 2,
+                        "textBaseline": 0,
+                        "children": [
+                          {
+                            "widgetType": "ServerText",
+                            "data": "Only  ",
+                            "style": {
+                              "color": 4294967292,
+                              "fontSize": 14,
+                              "fontWeight": 4
+                            }
+                          },
+                          {
+                            "widgetType": "ServerText",
+                            "data": "$6.67",
+                            "style": {
+                              "color": 14286848,
+                              "fontSize": 24,
+                              "fontWeight": 5,
+                              "fontFamily": "Helvetica Compressed"
+                            }
+                          },
+                          {
+                            "widgetType": "ServerText",
+                            "data": "  /mo",
+                            "style": {
+                              "color": 14286848,
+                              "fontSize": 14,
+                              "fontWeight": 4
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "widgetType": "ServerSpace",
+                        "width": 0,
+                        "height": 5
+                      },
+                      {
+                        "widgetType": "ServerCenter",
+                        "child": {
+                          "widgetType": "ServerSizedBox",
+                          "height": 30,
+                          "child": {
+                            "widgetType": "ServerRow",
+                            "mainAxisAlignment": 1,
+                            "crossAxisAlignment": 2,
+                            "textBaseline": 0,
+                            "children": [
+                              {
+                                "widgetType": "ServerText",
+                                "data": "Billed annually at  ",
+                                "style": {
+                                  "color": 4294967292,
+                                  "fontSize": 14,
+                                  "fontWeight": 4
+                                }
+                              },
+                              {
+                                "widgetType": "ServerText",
+                                "data": "$79.99 ",
+                                "style": {
+                                  "color": 4294967292,
+                                  "fontSize": 24,
+                                  "fontWeight": 5,
+                                  "fontFamily": "Helvetica Compressed",
+                                  "height": 1
+                                }
+                              },
+                              {
+                                "widgetType": "ServerText",
+                                "data": "/yr",
+                                "style": {
+                                  "color": 4294967292,
+                                  "fontSize": 14,
+                                  "fontWeight": 4
+                                }
+                              },
+                              {
+                                "widgetType": "ServerSpace",
+                                "width": 2,
+                                "height": 0
+                              },
+                              {
+                                "widgetType": "ServerText",
+                                "data": "$240",
+                                "style": {
+                                  "color": 8882055,
+                                  "fontSize": 24,
+                                  "fontWeight": 5,
+                                  "height": 1,
+                                  "fontFamily": "Helvetica Compressed",
+                                  "decoration": 4,
+                                  "decorationColor": 8882055
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "widgetType": "ServerSpace",
+                        "width": 0,
+                        "height": 25
+                      },
+                      {
+                        "widgetType": "ServerPadding",
+                        "padding": {
+                          "left": 16,
+                          "top": 0,
+                          "right": 16,
+                          "bottom": 0
+                        },
+                        "child": {
+                          "widgetType": "ServerColumn",
+                          "children": [
+                            {
+                              "widgetType": "ServerRow",
+                              "children": [
+                                {
+                                  "widgetType": "ServerContainer",
+                                  "width": 32,
+                                  "height": 32,
+                                  "decoration": {
+                                    "color": 2236963,
+                                    "borderRadius": {
+                                      "radius": 8
+                                    }
+                                  },
+                                  "child": {
+                                    "widgetType": "ServerCenter",
+                                    "child": {
+                                      "widgetType": "ServerSvgAsset",
+                                      "assetName": "assets/icons/svg/Dumbbell.svg",
+                                      "width": 17,
+                                      "height": 17,
+                                      "color": 4294967292
+                                    }
+                                  }
+                                },
+                                {
+                                  "widgetType": "ServerSpace",
+                                  "width": 12,
+                                  "height": 0
+                                },
+                                {
+                                  "widgetType": "ServerExpanded",
+                                  "child": {
+                                    "widgetType": "ServerText",
+                                    "data": "CBUM's full workout library and programs.",
+                                    "style": {
+                                      "fontSize": 14,
+                                      "fontWeight": 4
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "widgetType": "ServerSpace",
+                              "width": 0,
+                              "height": 12
+                            },
+                            {
+                              "widgetType": "ServerRow",
+                              "children": [
+                                {
+                                  "widgetType": "ServerContainer",
+                                  "width": 32,
+                                  "height": 32,
+                                  "decoration": {
+                                    "color": 2236963,
+                                    "borderRadius": {
+                                      "radius": 8
+                                    }
+                                  },
+                                  "child": {
+                                    "widgetType": "ServerCenter",
+                                    "child": {
+                                      "widgetType": "ServerSvgAsset",
+                                      "assetName": "assets/icons/svg/nutrition_icon.svg",
+                                      "width": 17,
+                                      "height": 17,
+                                      "color": 4294967292
+                                    }
+                                  }
+                                },
+                                {
+                                  "widgetType": "ServerSpace",
+                                  "width": 12,
+                                  "height": 0
+                                },
+                                {
+                                  "widgetType": "ServerExpanded",
+                                  "child": {
+                                    "widgetType": "ServerText",
+                                    "data": "Nutrition tracking with personalized goals.",
+                                    "style": {
+                                      "fontSize": 14,
+                                      "fontWeight": 4
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "widgetType": "ServerSpace",
+                              "width": 0,
+                              "height": 12
+                            },
+                            {
+                              "widgetType": "ServerRow",
+                              "children": [
+                                {
+                                  "widgetType": "ServerContainer",
+                                  "width": 32,
+                                  "height": 32,
+                                  "decoration": {
+                                    "color": 2236963,
+                                    "borderRadius": {
+                                      "radius": 8
+                                    }
+                                  },
+                                  "child": {
+                                    "widgetType": "ServerCenter",
+                                    "child": {
+                                      "widgetType": "ServerSvgAsset",
+                                      "assetName": "assets/icons/svg/community_icon.svg",
+                                      "height": 16,
+                                      "width": 22,
+                                      "color": 4294967292
+                                    }
+                                  }
+                                },
+                                {
+                                  "widgetType": "ServerSpace",
+                                  "width": 12,
+                                  "height": 0
+                                },
+                                {
+                                  "widgetType": "ServerExpanded",
+                                  "child": {
+                                    "widgetType": "ServerText",
+                                    "data": "Community support and accountability tools.",
+                                    "style": {
+                                      "fontSize": 14,
+                                      "fontWeight": 4
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "widgetType": "ServerSpace",
+                              "width": 0,
+                              "height": 12
+                            },
+                            {
+                              "widgetType": "ServerRow",
+                              "children": [
+                                {
+                                  "widgetType": "ServerContainer",
+                                  "width": 32,
+                                  "height": 32,
+                                  "decoration": {
+                                    "color": 2236963,
+                                    "borderRadius": {
+                                      "radius": 8
+                                    }
+                                  },
+                                  "child": {
+                                    "widgetType": "ServerCenter",
+                                    "child": {
+                                      "widgetType": "ServerSvgAsset",
+                                      "assetName": "assets/icons/svg/Medal.svg",
+                                      "height": 16,
+                                      "width": 22,
+                                      "color": 4294967292
+                                    }
+                                  }
+                                },
+                                {
+                                  "widgetType": "ServerSpace",
+                                  "width": 12,
+                                  "height": 0
+                                },
+                                {
+                                  "widgetType": "ServerExpanded",
+                                  "child": {
+                                    "widgetType": "ServerText",
+                                    "data": "Personal milestone achievements and medals.",
+                                    "style": {
+                                      "fontSize": 14,
+                                      "fontWeight": 4
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "widgetType": "ServerSpace",
+                              "width": 0,
+                              "height": 32
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "widgetType": "ServerPadding",
+                        "padding": {
+                          "left": 16,
+                          "top": 0,
+                          "right": 16,
+                          "bottom": 0
+                        },
+                        "child": {
+                          "widgetType": "ServerCustomAppButton",
+                          "buttonText": "Claim Black Friday Offer",
+                          "buttonColor": 4294967292,
+                          "buttonTextColor": 184549376,
+                          "textFontWeight": 6,
+                          "textSize": 16,
+                          "showLoader": false,
+                          "showBorder": false,
+                          "borderColor": 11184810,
+                          "onTapActionId": "claimBlackFridayOffer",
+                          "disableColor": null,
+                          "disabledTextColor": null,
+                          "padding": {
+                            "left": 16,
+                            "top": 16,
+                            "right": 16,
+                            "bottom": 16
+                          },
+                          "width": null,
+                          "height": null,
+                          "minSize": null,
+                          "textLetterSpacing": null,
+                          "iconName": null,
+                          "suffixIconName": null,
+                          "iconColor": 4294967292,
+                          "suffixIconSize": null,
+                          "hasSuffixWidget": false
+                        }
+                      },
+                      {
+                        "widgetType": "ServerVisibility",
+                        "visible": false,
+                        "child": {
+                          "widgetType": "ServerColumn",
+                          "children": [
+                            {
+                              "widgetType": "ServerSpace",
+                              "width": 0,
+                              "height": 24
+                            },
+                            {
+                              "widgetType": "ServerGestureDetector",
+                              "onTapActionId": "dontShowAgain",
+                              "child": {
+                                "widgetType": "ServerText",
+                                "data": "Don't show again",
+                                "style": {
+                                  "fontSize": 16,
+                                  "fontWeight": 6
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "widgetType": "ServerAlign",
+              "alignment": {
+                "x": 1.0,
+                "y": -1.0
+              },
+              "child": {
+                "widgetType": "ServerPadding",
+                "padding": {
+                  "left": 0,
+                  "top": 62,
+                  "right": 16,
+                  "bottom": 0
+                },
+                "child": {
+                  "widgetType": "ServerGestureDetector",
+                  "onTapActionId": "closeSheet",
+                  "child": {
+                    "widgetType": "ServerSvgAsset",
+                    "assetName": "assets/icons/svg/Close.svg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
