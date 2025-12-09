@@ -1,5 +1,11 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:flutter/widgets.dart';
+
+class ServerDriverUiGrounds {
+  Map<String, dynamic> widgetToJson(Widget widget) {
+    return widgetToJson(widget);
+  }
+
+  Widget widgetFromJson({required Map<String, dynamic> json}) {
+    return widgetFromJson(json: json);
+  }
 }
