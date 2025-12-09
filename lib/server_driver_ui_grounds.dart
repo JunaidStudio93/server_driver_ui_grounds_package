@@ -1,11 +1,8 @@
 import 'package:flutter/widgets.dart';
+import 'server_driver_ui/json_to_widget.dart';
 
 class ServerDriverUiGrounds {
-  Map<String, dynamic> widgetToJson(Widget widget) {
-    return widgetToJson(widget);
-  }
-
   Widget widgetFromJson({required Map<String, dynamic> json}) {
-    return widgetFromJson(json: json);
+    return ServerDrivenUI.parseWidgetFromJson(json);
   }
 }
