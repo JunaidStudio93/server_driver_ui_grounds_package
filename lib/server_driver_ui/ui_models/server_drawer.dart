@@ -16,15 +16,31 @@ class ServerDrawer {
     this.widgetType = 'ServerDrawer',
   });
 
-  factory ServerDrawer.fromJson(Map<String, dynamic> json) {
+  factory ServerDrawer.fromJson(
+    Map<String, dynamic> json, {
+    Brightness? brightness,
+    dynamic Function(String)? valueResolver,
+  }) {
     final shapeJson = json['shape'];
 
     return ServerDrawer(
       key: json['key'] != null ? Key(json['key']) : null,
       elevation: (json['elevation'] as num?)?.toDouble(),
-      backgroundColor: colorFromHex(json['backgroundColor']),
-      surfaceTintColor: colorFromHex(json['surfaceTintColor']),
-      shadowColor: colorFromHex(json['shadowColor']),
+      backgroundColor: colorFromHex(
+        json['backgroundColor'],
+        brightness: brightness,
+        valueResolver: valueResolver,
+      ),
+      surfaceTintColor: colorFromHex(
+        json['surfaceTintColor'],
+        brightness: brightness,
+        valueResolver: valueResolver,
+      ),
+      shadowColor: colorFromHex(
+        json['shadowColor'],
+        brightness: brightness,
+        valueResolver: valueResolver,
+      ),
       semanticLabel: json['semanticLabel'],
       width: (json['width'] as num?)?.toDouble(),
       child: json['child'],
@@ -33,6 +49,18 @@ class ServerDrawer {
               borderRadius: BorderRadius.circular(
                 (shapeJson['borderRadius'] as num?)?.toDouble() ?? 0,
               ),
+              side: shapeJson['side'] != null
+                  ? BorderSide(
+                      color: colorFromHex(
+                            shapeJson['side']['color'],
+                            brightness: brightness,
+                            valueResolver: valueResolver,
+                          ) ??
+                          Colors.black,
+                      width: (shapeJson['side']['width'] as num?)?.toDouble() ??
+                          1.0,
+                    )
+                  : BorderSide.none,
             )
           : null,
       clipBehavior: json['clipBehavior'] != null
@@ -64,6 +92,12 @@ class ServerDrawer {
                       .topLeft
                       .x
                 : 0,
+            'side': (shape as RoundedRectangleBorder).side != BorderSide.none
+                ? {
+                    'color': colorToHex((shape as RoundedRectangleBorder).side.color),
+                    'width': (shape as RoundedRectangleBorder).side.width,
+                  }
+                : null,
           }
         : null;
 

@@ -75,6 +75,18 @@ class ServerAppBar {
               borderRadius: BorderRadius.circular(
                 (shapeJson['borderRadius'] as num?)?.toDouble() ?? 0,
               ),
+              side: shapeJson['side'] != null
+                  ? BorderSide(
+                      color: colorFromHex(
+                            shapeJson['side']['color'],
+                            brightness: brightness,
+                            valueResolver: valueResolver,
+                          ) ??
+                          Colors.black,
+                      width: (shapeJson['side']['width'] as num?)?.toDouble() ??
+                          1.0,
+                    )
+                  : BorderSide.none,
             )
           : null,
       backgroundColor: colorFromHex(
@@ -225,6 +237,12 @@ class ServerAppBar {
                       .topLeft
                       .x
                 : 0,
+            'side': (shape as RoundedRectangleBorder).side != BorderSide.none
+                ? {
+                    'color': colorToHex((shape as RoundedRectangleBorder).side.color),
+                    'width': (shape as RoundedRectangleBorder).side.width,
+                  }
+                : null,
           }
         : null;
 

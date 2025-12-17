@@ -89,6 +89,19 @@ class ServerInkWell {
               borderRadius: BorderRadius.circular(
                 (json['customBorder']['borderRadius'] as num?)?.toDouble() ?? 0,
               ),
+              side: json['customBorder']['side'] != null
+                  ? BorderSide(
+                      color: colorFromHex(
+                            json['customBorder']['side']['color'],
+                            brightness: brightness,
+                            valueResolver: valueResolver,
+                          ) ??
+                          Colors.black,
+                      width: (json['customBorder']['side']['width'] as num?)
+                              ?.toDouble() ??
+                          1.0,
+                    )
+                  : BorderSide.none,
             )
           : null,
       child: json['child'],
@@ -159,6 +172,15 @@ class ServerInkWell {
                         .topLeft
                         .x
                   : 0,
+              'side': (customBorder as RoundedRectangleBorder).side !=
+                      BorderSide.none
+                  ? {
+                      'color': colorToHex(
+                          (customBorder as RoundedRectangleBorder).side.color),
+                      'width':
+                          (customBorder as RoundedRectangleBorder).side.width,
+                    }
+                  : null,
             }
           : null,
       'child': child,

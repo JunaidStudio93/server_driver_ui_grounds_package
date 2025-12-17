@@ -9,16 +9,30 @@ class ServerDecoratedBox {
     this.widgetType = 'ServerDecoratedBox',
   });
 
-  factory ServerDecoratedBox.fromJson(Map<String, dynamic> json) {
+  factory ServerDecoratedBox.fromJson(
+    Map<String, dynamic> json, {
+    Brightness? brightness,
+    dynamic Function(String)? valueResolver,
+  }) {
     final dec = json['decoration'];
     return ServerDecoratedBox(
       key: json['key'] != null ? Key(json['key']) : null,
       decoration: BoxDecoration(
-        color: colorFromHex(dec['color']),
+        color: colorFromHex(
+          dec['color'],
+          brightness: brightness,
+          valueResolver: valueResolver,
+        ),
         gradient: dec['gradient'] != null
             ? LinearGradient(
                 colors: (dec['gradient']['colors'] as List)
-                    .map((c) => colorFromHex(c) ?? Colors.transparent)
+                    .map(
+                      (c) => colorFromHex(
+                        c,
+                        brightness: brightness,
+                        valueResolver: valueResolver,
+                      ) ?? Colors.transparent,
+                    )
                     .toList(),
                 begin: Alignment(
                   (dec['gradient']['begin']['x'] as num?)?.toDouble() ?? 0,
@@ -38,6 +52,17 @@ class ServerDecoratedBox {
         borderRadius: dec['borderRadius'] != null
             ? BorderRadius.circular(
                 (dec['borderRadius']['radius'] as num?)?.toDouble() ?? 0,
+              )
+            : null,
+        border: dec['border'] != null
+            ? Border.all(
+                color: colorFromHex(
+                      dec['border']['color'],
+                      brightness: brightness,
+                      valueResolver: valueResolver,
+                    ) ??
+                    Colors.black,
+                width: (dec['border']['width'] as num?)?.toDouble() ?? 1.0,
               )
             : null,
       ),
@@ -89,6 +114,12 @@ class ServerDecoratedBox {
             : null,
         'borderRadius': box.borderRadius != null
             ? {'radius': (box.borderRadius! as BorderRadius).topLeft.x}
+            : null,
+        'border': box.border != null
+            ? {
+                'color': colorToHex(box.border!.top.color),
+                'width': box.border!.top.width,
+              }
             : null,
       },
       'child': child,

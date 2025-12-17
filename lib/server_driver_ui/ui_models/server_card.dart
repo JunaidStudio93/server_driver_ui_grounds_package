@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:server_driver_ui_grounds_package/server_driver_ui/ui_models/server_helper.dart';
 
 class ServerCard {
   ServerCard({
@@ -16,7 +17,11 @@ class ServerCard {
     this.widgetType = 'ServerCard',
   });
 
-  factory ServerCard.fromJson(Map<String, dynamic> json) {
+  factory ServerCard.fromJson(
+    Map<String, dynamic> json, {
+    Brightness? brightness,
+    dynamic Function(String)? valueResolver,
+  }) {
     final marginJson = json['margin'];
     final shapeJson = json['shape'];
 
@@ -35,6 +40,18 @@ class ServerCard {
               borderRadius: BorderRadius.circular(
                 (shapeJson['borderRadius'] as num?)?.toDouble() ?? 0,
               ),
+              side: shapeJson['side'] != null
+                  ? BorderSide(
+                      color: colorFromHex(
+                            shapeJson['side']['color'],
+                            brightness: brightness,
+                            valueResolver: valueResolver,
+                          ) ??
+                          Colors.black,
+                      width: (shapeJson['side']['width'] as num?)?.toDouble() ??
+                          1.0,
+                    )
+                  : BorderSide.none,
             )
           : null,
       borderOnForeground: json['borderOnForeground'] ?? true,
@@ -92,6 +109,12 @@ class ServerCard {
                         .topLeft
                         .x
                     : 0,
+            'side': (shape as RoundedRectangleBorder).side != BorderSide.none
+                ? {
+                    'color': colorToHex((shape as RoundedRectangleBorder).side.color),
+                    'width': (shape as RoundedRectangleBorder).side.width,
+                  }
+                : null,
           }
         : null;
 

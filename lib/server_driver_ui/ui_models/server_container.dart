@@ -279,6 +279,61 @@ class ServerBoxDecoration {
     this.shape = BoxShape.rectangle,
   });
 
+  /// Parses a border from JSON, supporting both uniform borders and individual sides
+  static Border? _parseBorder(
+    Map<String, dynamic> borderJson,
+    Brightness? brightness,
+    dynamic Function(String)? valueResolver,
+  ) {
+    // Check if individual sides are specified (top, bottom, left, right)
+    if (borderJson.containsKey('top') ||
+        borderJson.containsKey('bottom') ||
+        borderJson.containsKey('left') ||
+        borderJson.containsKey('right')) {
+      // Parse individual sides
+      BorderSide? parseSide(String sideName) {
+        if (!borderJson.containsKey(sideName)) {
+          return null; // Will default to BorderSide.none
+        }
+        final sideJson = borderJson[sideName] as Map<String, dynamic>?;
+        if (sideJson == null) return null;
+        return BorderSide(
+          color:
+              colorFromHex(
+                sideJson['color'],
+                brightness: brightness,
+                valueResolver: valueResolver,
+              ) ??
+              Colors.black,
+          width: (sideJson['width'] as num?)?.toDouble() ?? 1.0,
+        );
+      }
+
+      return Border(
+        top: parseSide('top') ?? BorderSide.none,
+        bottom: parseSide('bottom') ?? BorderSide.none,
+        left: parseSide('left') ?? BorderSide.none,
+        right: parseSide('right') ?? BorderSide.none,
+      );
+    }
+
+    // Fallback to uniform border (backward compatibility)
+    if (borderJson.containsKey('color') || borderJson.containsKey('width')) {
+      return Border.all(
+        color:
+            colorFromHex(
+              borderJson['color'],
+              brightness: brightness,
+              valueResolver: valueResolver,
+            ) ??
+            Colors.black,
+        width: (borderJson['width'] as num?)?.toDouble() ?? 1.0,
+      );
+    }
+
+    return null;
+  }
+
   factory ServerBoxDecoration.fromJson(
     Map<String, dynamic> json, {
     Brightness? brightness,
@@ -299,16 +354,7 @@ class ServerBoxDecoration {
             )
           : null,
       border: json['border'] != null
-          ? Border.all(
-              color:
-                  colorFromHex(
-                    json['border']['color'],
-                    brightness: brightness,
-                    valueResolver: valueResolver,
-                  ) ??
-                  Colors.black,
-              width: (json['border']['width'] as num?)?.toDouble() ?? 1.0,
-            )
+          ? _parseBorder(json['border'], brightness, valueResolver)
           : null,
       borderRadius: json['borderRadius'] != null
           ? BorderRadius.circular(
@@ -399,9 +445,7 @@ class ServerBoxDecoration {
               'fit': image!.fit?.index,
             }
           : null,
-      'border': border != null
-          ? {'color': colorToHex(border!.top.color), 'width': border!.top.width}
-          : null,
+      'border': border != null ? _borderToJson(border!) : null,
       'borderRadius': borderRadius != null
           ? {'radius': (borderRadius as BorderRadius).topLeft.x}
           : null,
@@ -439,6 +483,54 @@ class ServerBoxDecoration {
       'backgroundBlendMode': backgroundBlendMode?.index,
       'shape': shape.index,
     };
+  }
+
+  /// Serializes a border to JSON, handling both uniform and individual sides
+  static Map<String, dynamic>? _borderToJson(Border border) {
+    // Check if all sides are the same (uniform border)
+    final top = border.top;
+    final bottom = border.bottom;
+    final left = border.left;
+    final right = border.right;
+
+    final isUniform =
+        top.color == bottom.color &&
+        top.color == left.color &&
+        top.color == right.color &&
+        top.width == bottom.width &&
+        top.width == left.width &&
+        top.width == right.width &&
+        top.style == bottom.style &&
+        top.style == left.style &&
+        top.style == right.style;
+
+    if (isUniform && top != BorderSide.none) {
+      // Use simple format for uniform borders
+      return {'color': colorToHex(top.color), 'width': top.width};
+    }
+
+    // Use individual sides format
+    final result = <String, dynamic>{};
+    if (top != BorderSide.none) {
+      result['top'] = {'color': colorToHex(top.color), 'width': top.width};
+    }
+    if (bottom != BorderSide.none) {
+      result['bottom'] = {
+        'color': colorToHex(bottom.color),
+        'width': bottom.width,
+      };
+    }
+    if (left != BorderSide.none) {
+      result['left'] = {'color': colorToHex(left.color), 'width': left.width};
+    }
+    if (right != BorderSide.none) {
+      result['right'] = {
+        'color': colorToHex(right.color),
+        'width': right.width,
+      };
+    }
+
+    return result.isEmpty ? null : result;
   }
 
   BoxDecoration toBoxDecoration() {
